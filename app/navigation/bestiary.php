@@ -2,6 +2,7 @@
     include("./../../app/include/environnement.php");
     $request = $bdd->prepare("  SELECT *
                                 FROM creatures
+                                -- INNER JOIN users ON creatures.user_id = users.name
     ");
     $request->execute([]);
 ?>

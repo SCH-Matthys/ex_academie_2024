@@ -126,11 +126,18 @@ main{
     flex-direction: column;
 }
 #mainRegister>form>p{
+    font-size: 20px;
     text-align: center;
     padding-bottom: 8px;
 }
-#mainRegister>form>div{
+#mainRegister>form div:not(:nth-of-type(4),:nth-of-type(5),:nth-of-type(6),:nth-of-type(7)){
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainRegister>form div:nth-of-type(4),:nth-of-type(5),:nth-of-type(6),:nth-of-type(7){
+    width: 30%;
     display: flex;
     justify-content: space-between;
     padding-bottom: 8px;

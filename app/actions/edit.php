@@ -18,7 +18,19 @@
         $type = htmlspecialchars(trim(strtolower($_POST["type"])));
         $id = htmlspecialchars(trim($_POST["id"]));
         // var_dump($_FILES["image"]["name"],$_FILES["image"]["type"],$_FILES["image"]["tmp_name"],pathinfo($_FILES["image"]["name"]));   
-        if($_FILES["image"]){
+        if($_FILES["image"]['error'] === UPLOAD_ERR_NO_FILE){
+            $request = $bdd->prepare("  UPDATE creatures
+                                        SET name = :name, description = :description, type = :type
+                                        WHERE id = :id
+            ");
+            $request->execute([
+                "name"          => $name,
+                "description"   => $description,
+                "type"          => $type,
+                "id"            => $id
+            ]);
+            header("Location:/php%20academie%202024/app/navigation/bestiary.php");
+        }else{
             $imageInfo = pathinfo($_FILES["image"]["name"]);
             $imageName = $imageInfo["filename"];
             $imageExtension = $imageInfo["extension"];
@@ -35,18 +47,6 @@
                 "name"          => $name,
                 "description"   => $description,
                 "image"         => $image,
-                "type"          => $type,
-                "id"            => $id
-            ]);
-            header("Location:/php%20academie%202024/app/navigation/bestiary.php");
-        }else{
-            $request = $bdd->prepare("  UPDATE creatures
-                                        SET name = :name, description = :description, type = :type
-                                        WHERE id = :id
-            ");
-            $request->execute([
-                "name"          => $name,
-                "description"   => $description,
                 "type"          => $type,
                 "id"            => $id
             ]);

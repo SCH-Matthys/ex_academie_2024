@@ -1,8 +1,12 @@
 <?php
     include("./../../app/include/environnement.php");
     // var_dump($_GET);
+    $requestElement = $bdd->prepare("   SELECT name
+                                        FROM elements
+    ");
+    $requestElement->execute([]);
     if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["confirmPassword"])){
-        echo "oui";
+        // echo "oui";
         $username = htmlspecialchars(trim(strtolower($_POST["username"])));
         $password = htmlspecialchars(trim($_POST["password"]));
         $confirmPassword = htmlspecialchars(trim($_POST["confirmPassword"]));
@@ -31,8 +35,6 @@
         }else{
             header("Location:/php%20academie%202024/app/authentification/register.php?registerError=1");
         }
-    }else{
-        echo "non";
     }
     // var_dump($_POST);
 ?>
@@ -56,18 +58,27 @@
                     echo "<p class='error'> Vous avez déjà un compte. </p>";
                 };
             ?>
-            <div>
+            <div class="divInput">
                 <label for="username">Username :</label>
                 <input type="text" name="username" id="username" required>
             </div>
-            <div>
+            <div class="divInput">
                 <label for="password">Password :</label>
                 <input type="password" name="password" id="password" required>
             </div>
-            <div>
+            <div class="divInput">
                 <label for="confirmPassword">Confirm Password :</label>
                 <input type="password" name="confirmPassword" id="confirmPassword" required>
             </div>
+            <p>Quel(s) élément(s) maîtrisez-vous ?</p>
+            <?php 
+                while( $elementData = $requestElement->fetch()){
+                    echo "<div class='divCheckbox'>";
+                    echo "<label for='".$elementData["name"]."'>".$elementData["name"]." :</label>";
+                    echo "<input type='checkbox' name='".$elementData["name"]."' id='".$elementData["name"]."'>";
+                    echo "</div>";
+                };
+            ?>
             <a href="/php%20academie%202024/app/authentification/login.php">Déjà inscrit ?</a>
             <button>S'inscrire</button>
         </form>
