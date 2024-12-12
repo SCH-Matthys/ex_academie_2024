@@ -1,0 +1,315 @@
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+/* ////////////////////////////////////////////////HEADER//////////////////////////////////////////////// */
+header{
+    background-color: #313131;
+}
+header ul{
+    display: flex;
+}
+header li{
+    padding: 8px 16px;
+}
+header li:nth-of-type(3){
+    margin-right: auto;
+}
+header li>a{
+    color: white;
+    font-size: 22px;
+    transition: 0.2s;
+}
+header li>a:hover{
+    color: wheat;
+}
+/* ////////////////////////////////////////////////MAIN//////////////////////////////////////////////// */
+main{
+    height: calc(100vh - 42px);
+    background-image: url(../images/app/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* ////////////////////////////////////////////////INDEX//////////////////////////////////////////////// */
+#mainIndex{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#mainIndex>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#mainIndex>div>a{
+    text-align: center;
+    width: 150px;
+    padding: 16px 32px;
+    border-radius: 2px;
+    background-color: wheat;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #313131;
+    transition: 0.2s;
+}
+#mainIndex>div>a:hover{
+    color: wheat;
+    background-color: #313131;
+}
+/* ////////////////////////////////////////////////LOGIN//////////////////////////////////////////////// */
+#mainLogin{
+    height: calc(100vh - 342px);
+    padding-top: 300px;
+}
+#mainLogin form{
+    padding: 32px;
+    width: 280px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: rgba(245, 222, 179, 0.9);
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainLogin>form>p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mainLogin>form>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainLogin>form>div>label{
+    font-size: 20px;
+}
+#mainLogin>form>a{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+#mainLogin>form>button{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 16px;
+}
+#mainLogin>form>button:hover{
+    cursor: pointer;
+}
+/* ////////////////////////////////////////////////REGISTER//////////////////////////////////////////////// */
+.valid{
+    color: green;
+}
+.error{
+    color: red;
+}
+#mainRegister{
+    height: calc(100vh - 342px);
+    padding-top: 300px;
+}
+#mainRegister form{
+    padding: 32px;
+    width: 350px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: rgba(245, 222, 179, 0.9);
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainRegister>form>p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mainRegister>form>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainRegister>form>div>label{
+    font-size: 20px;
+}
+#mainRegister>form>a{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+#mainRegister>form>button{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 16px;
+}
+#mainRegister>form>button:hover{
+    cursor: pointer;
+}
+/* ////////////////////////////////////////////////ADD//////////////////////////////////////////////// */
+#mainAdd{
+    height: calc(100vh - 242px);
+    padding-top: 200px;
+}
+#mainAdd form{
+    padding: 32px;
+    width: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: rgba(245, 222, 179, 0.9);
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainAdd>form>p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mainAdd>form>label{
+    font-size: 20px;
+    padding-bottom: 8px;
+}
+#mainAdd>form>textarea{
+    width: 220px;
+    height: 80px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+#mainAdd>form>input#image{
+    padding-bottom: 8px;
+}
+#mainAdd>form>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainAdd>form>div>label{
+    font-size: 20px;
+}
+#mainAdd>form>a{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+#mainAdd>form>button{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 16px;
+}
+#mainAdd>form>button:hover{
+    cursor: pointer;
+}
+/* ////////////////////////////////////////////////BESTIARY//////////////////////////////////////////////// */
+#mainBestiary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mainBestiary article{
+    height: 500px;
+    background-color: rgba(245, 222, 179, 0.8);
+    padding: 32px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 0px 16px;
+}
+#mainBestiary article>h2{
+    text-transform: capitalize;
+}
+#mainBestiary article>img{
+    border-radius: 2px;
+    width: 200px;
+    padding-bottom: 16px;
+}
+#mainBestiary article>p{
+    padding-top: 8px;
+}
+#mainBestiary article>p:not(:nth-of-type(2)){
+    text-transform: capitalize;
+}
+#mainBestiary article>p:nth-of-type(2){
+    width: 250px;
+}
+#mainBestiary article>div{
+    /* margin-top: auto; */
+    padding-top: 16px;
+}
+#mainBestiary article>div>a{
+    padding: 8px 32px;
+    border-radius: 4px;
+    border: solid 2px #313131;
+    background-color: #313131;
+    color: wheat;
+    transition: 0.2s;
+}
+#mainBestiary article>div>a:nth-of-type(1):hover{
+    cursor: pointer;
+    border: solid 2px blue;
+    color: blue;
+}
+#mainBestiary article>div>a:nth-of-type(2):hover{
+    cursor: pointer;
+    border: solid 2px red;
+    color: red;
+}
+/* ////////////////////////////////////////////////EDIT//////////////////////////////////////////////// */
+#mainEdit{
+    height: calc(100vh - 242px);
+    padding-top: 200px;
+}
+#mainEdit form{
+    padding: 32px;
+    width: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: rgba(245, 222, 179, 0.9);
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainEdit>form>p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mainEdit>form>label{
+    font-size: 20px;
+    padding-bottom: 8px;
+}
+#mainEdit>form>textarea{
+    width: 220px;
+    height: 80px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+#mainEdit>form>input#image{
+    padding-bottom: 8px;
+}
+#mainEdit>form>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainEdit>form>div>label{
+    font-size: 20px;
+}
+#mainEdit>form>a{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+#mainEdit>form>button{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 16px;
+}
+#mainEdit>form>button:hover{
+    cursor: pointer;
+}
