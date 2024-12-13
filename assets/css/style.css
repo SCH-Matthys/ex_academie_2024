@@ -320,3 +320,166 @@ main{
 #mainEdit>form>button:hover{
     cursor: pointer;
 }
+/* ////////////////////////////////////////////////ADD SPELL//////////////////////////////////////////////// */
+#mainAddSpell{
+    height: calc(100vh - 242px);
+    padding-top: 200px;
+}
+#mainAddSpell form{
+    padding: 32px;
+    width: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: rgba(245, 222, 179, 0.9);
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainAddSpell>form>p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mainAddSpell>form>label{
+    font-size: 20px;
+    padding-bottom: 8px;
+}
+#mainAddSpell>form>textarea{
+    width: 220px;
+    height: 80px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+#mainAddSpell>form>input#image{
+    padding-bottom: 8px;
+}
+#mainAddSpell>form>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainAddSpell>form>div>label{
+    font-size: 20px;
+}
+#mainAddSpell>form>a{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+#mainAddSpell>form>button{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 16px;
+}
+#mainAddSpell>form>button:hover{
+    cursor: pointer;
+}
+/* ////////////////////////////////////////////////CODEX//////////////////////////////////////////////// */
+#mainCodex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mainCodex    article{
+    height: 300px;
+    background-color: rgba(245, 222, 179, 0.8);
+    padding: 32px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 0px 16px;
+}
+#mainCodex article>h2{
+    text-transform: capitalize;
+}
+#mainCodex article>img{
+    border-radius: 2px;
+    width: 100px;
+    padding-bottom: 16px;
+}
+#mainCodex article>p{
+    padding-top: 8px;
+}
+#mainCodex article>p:not(:nth-of-type(2)){
+    text-transform: capitalize;
+}
+#mainCodex article>p:nth-of-type(2){
+    width: 250px;
+}
+#mainCodex article>div{
+    /* margin-top: auto; */
+    padding-top: 16px;
+}
+#mainCodex article>div>a{
+    padding: 8px 32px;
+    border-radius: 4px;
+    border: solid 2px #313131;
+    background-color: #313131;
+    color: wheat;
+    transition: 0.2s;
+}
+#mainCodex article>div>a:nth-of-type(1):hover{
+    cursor: pointer;
+    border: solid 2px blue;
+    color: blue;
+}
+#mainCodex article>div>a:nth-of-type(2):hover{
+    cursor: pointer;
+    border: solid 2px red;
+    color: red;
+}
+/* ////////////////////////////////////////////////EDIT//////////////////////////////////////////////// */
+#mainEditSpell{
+    height: calc(100vh - 242px);
+    padding-top: 200px;
+}
+#mainEditSpell form{
+    padding: 32px;
+    width: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    background-color: rgba(245, 222, 179, 0.9);
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mainEditSpell>form>p{
+    text-align: center;
+    padding-bottom: 8px;
+}
+#mainEditSpell>form>label{
+    font-size: 20px;
+    padding-bottom: 8px;
+}
+#mainEditSpell>form>textarea{
+    width: 220px;
+    height: 80px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+#mainEditSpell>form>input#image{
+    padding-bottom: 8px;
+}
+#mainEditSpell>form>div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+#mainEditSpell>form>div>label{
+    font-size: 20px;
+}
+#mainEditSpell>form>a{
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+#mainEditSpell>form>button{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 8px 16px;
+}
+#mainEditSpell>form>button:hover{
+    cursor: pointer;
+}

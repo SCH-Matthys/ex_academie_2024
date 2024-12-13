@@ -7,7 +7,7 @@
             <?php 
                 if(isset($_SESSION["user_id"])){
                     echo "<li><a href='/php%20academie%202024/app/actions/add.php'>Ajouter une créature</a></li>";
-                    echo "<li><a href=''>Ajouter un sort</a></li>";
+                    echo "<li><a href='/php%20academie%202024/app/actions/addSpell.php'>Ajouter un sort</a></li>";
                 }
                 if(!isset($_SESSION["user_id"])){
                     echo "<li><a href='/php%20academie%202024/app/authentification/login.php'>Se connecter</a></li>";
