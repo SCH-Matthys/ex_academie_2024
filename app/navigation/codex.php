@@ -27,7 +27,7 @@
             <p><?= $data["description"] ?></p>
             <p>Ajouté par : <?= $data["user_id"] ?></p>
             <?php 
-                if(in_array($data["element_name"],$_SESSION["elements"]) == $data["user_id"] || isset($_SESSION["role"]) && $_SESSION["role"] == "admin"){
+                if(isset($_SESSION["user_id"]) && in_array($data["element_name"],$_SESSION["elements"]) == $data["user_id"] || isset($_SESSION["role"]) && $_SESSION["role"] == "admin"){
                     echo "
                             <div>
                                 <a href='/php%20academie%202024/app/actions/editSpell.php?id=".$data["id"]."'>Modifier</a>

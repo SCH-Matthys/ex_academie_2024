@@ -1,7 +1,7 @@
 <?php
     include("./../../app/include/environnement.php");
     // var_dump($_GET);
-    $requestElement = $bdd->prepare("   SELECT name
+    $requestElement = $bdd->prepare("   SELECT id,name
                                         FROM elements
     ");
     $requestElement->execute([]);
@@ -20,15 +20,26 @@
             if($data["userValue"] < 1){
                 $cryptedPassword = sha1("Monstrueuse Creature" . $password);
                 $role = "utilisateur";
-                $request = $bdd->prepare("  INSERT INTO users(name,password,role)
-                                            VALUES (:name,:password,:role)
-                ");
-                $request->execute([
-                    "name"      =>$username,
-                    "password"  =>$cryptedPassword,
-                    "role"      =>$role
-                ]);
-                header("Location:/php%20academie%202024/app/authentification/login.php?registerSuccess=1");
+                // $request = $bdd->prepare("  INSERT INTO users(name,password,role)
+                //                             VALUES (:name,:password,:role)
+                // ");
+                // $request->execute([
+                //     "name"      =>$username,
+                //     "password"  =>$cryptedPassword,
+                //     "role"      =>$role
+                // ]);
+                // $request2 = $bdd->prepare(" INSERT INTO user_element(user_id,element_id)
+                //                             VALUES (:user_id,:element_id)
+                // ");
+                // foreach($_POST["checkbox"] as $element){
+                //     $request2->execute([
+                //         "user_id"       => $_SESSION("user_id"),
+                //         "element_id"    => $element
+                //     ]);
+                // };
+                var_dump($_POST["checkbox"]);
+                var_dump($_POST);
+                // header("Location:/php%20academie%202024/app/authentification/login.php?registerSuccess=1");
             }else{
                 header("Location:/php%20academie%202024/app/authentification/register.php?registerError=2");
             }
@@ -36,7 +47,6 @@
             header("Location:/php%20academie%202024/app/authentification/register.php?registerError=1");
         }
     }
-    // var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,8 +84,8 @@
             <?php 
                 while( $elementData = $requestElement->fetch()){
                     echo "<div class='divCheckbox'>";
-                    echo "<label for='".$elementData["name"]."'>".$elementData["name"]." :</label>";
-                    echo "<input type='checkbox' name='".$elementData["name"]."' id='".$elementData["name"]."'>";
+                    echo "<label for='checkbox'>".$elementData["name"]." :</label>";
+                    echo "<input type='checkbox' name='checkbox' id='".$elementData["name"]."' value='".$elementData["id"]."'>";
                     echo "</div>";
                 };
             ?>
