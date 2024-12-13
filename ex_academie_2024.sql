@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 déc. 2024 à 16:56
+-- Généré le : ven. 13 déc. 2024 à 12:52
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -56,7 +56,7 @@ INSERT INTO `creatures` (`id`, `name`, `description`, `image`, `type`, `user_id`
 DROP TABLE IF EXISTS `elements`;
 CREATE TABLE IF NOT EXISTS `elements` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -65,10 +65,10 @@ CREATE TABLE IF NOT EXISTS `elements` (
 --
 
 INSERT INTO `elements` (`id`, `name`) VALUES
-(1, 'Air'),
-(2, 'Eau'),
-(3, 'Feu'),
-(4, 'Lumière');
+(1, 'air'),
+(2, 'eau'),
+(3, 'feu'),
+(4, 'lumière');
 
 -- --------------------------------------------------------
 
@@ -79,13 +79,20 @@ INSERT INTO `elements` (`id`, `name`) VALUES
 DROP TABLE IF EXISTS `spells`;
 CREATE TABLE IF NOT EXISTS `spells` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `user_id` int NOT NULL,
-  `element_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `element_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `spells`
+--
+
+INSERT INTO `spells` (`id`, `name`, `description`, `image`, `user_id`, `element_name`) VALUES
+(2, 'vents violents', 'The Hero calls upon the winds to impair enemy ranged-attacking creatures for 5 turn(s). Damage from all enemy shooters is reduced by X%.', 'Vent violent1734093203714.webp', 1, 'air');
 
 -- --------------------------------------------------------
 
@@ -144,6 +151,14 @@ CREATE TABLE IF NOT EXISTS `users_elements` (
   `user_id` int NOT NULL,
   `element_id` int NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `users_elements`
+--
+
+INSERT INTO `users_elements` (`user_id`, `element_id`) VALUES
+(1, 2),
+(1, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
