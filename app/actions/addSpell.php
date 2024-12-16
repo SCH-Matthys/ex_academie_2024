@@ -25,9 +25,9 @@
         ]);
         header("Location:/php%20academie%202024/app/navigation/codex.php");
     }else{
-        echo "non";
-        var_dump($_POST);
-        var_dump($_SESSION["user_id"]);
+        // echo "non";
+        // var_dump($_POST);
+        // var_dump($_SESSION["user_id"]);
     }
 ?>
 <!DOCTYPE html>

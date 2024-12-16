@@ -20,26 +20,35 @@
             if($data["userValue"] < 1){
                 $cryptedPassword = sha1("Monstrueuse Creature" . $password);
                 $role = "utilisateur";
-                // $request = $bdd->prepare("  INSERT INTO users(name,password,role)
-                //                             VALUES (:name,:password,:role)
-                // ");
-                // $request->execute([
-                //     "name"      =>$username,
-                //     "password"  =>$cryptedPassword,
-                //     "role"      =>$role
-                // ]);
-                // $request2 = $bdd->prepare(" INSERT INTO user_element(user_id,element_id)
-                //                             VALUES (:user_id,:element_id)
-                // ");
-                // foreach($_POST["checkbox"] as $element){
-                //     $request2->execute([
-                //         "user_id"       => $_SESSION("user_id"),
-                //         "element_id"    => $element
-                //     ]);
-                // };
-                var_dump($_POST["checkbox"]);
-                var_dump($_POST);
-                // header("Location:/php%20academie%202024/app/authentification/login.php?registerSuccess=1");
+                $checkboxId = [];
+                foreach($_POST["checkbox"] as $checkbox){
+                    array_push($checkboxId, $checkbox);
+                }
+                $request = $bdd->prepare("  INSERT INTO users(name,password,role)
+                                            VALUES (:name,:password,:role)
+                ");
+                $request->execute([
+                    "name"      =>$username,
+                    "password"  =>$cryptedPassword,
+                    "role"      =>$role
+                ]);
+                $lastId = $bdd->lastInsertId();
+                $request2 = $bdd->prepare(" INSERT INTO users_elements(user_id,element_id)
+                                            VALUES (:user_id,:element_id)
+                ");
+                if(isset($_POST["checkbox"]) && is_array($_POST["checkbox"])){
+                    foreach($_POST["checkbox"] as $element){
+                        $request2->execute([
+                            "user_id"       => $lastId,
+                            "element_id"    => $element
+                        ]);
+                    }
+                    // echo $lastId;
+                }
+                // var_dump($_POST["checkbox"]);
+                // var_dump($_POST);
+                // var_dump($checkboxId);
+                header("Location:/php%20academie%202024/app/authentification/login.php?registerSuccess=1");
             }else{
                 header("Location:/php%20academie%202024/app/authentification/register.php?registerError=2");
             }
@@ -85,7 +94,7 @@
                 while( $elementData = $requestElement->fetch()){
                     echo "<div class='divCheckbox'>";
                     echo "<label for='checkbox'>".$elementData["name"]." :</label>";
-                    echo "<input type='checkbox' name='checkbox' id='".$elementData["name"]."' value='".$elementData["id"]."'>";
+                    echo "<input type='checkbox' name='checkbox[]' id='checkbox_".$elementData["name"]."' value='".$elementData["id"]."'>";
                     echo "</div>";
                 };
             ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 13 déc. 2024 à 15:53
+-- Généré le : lun. 16 déc. 2024 à 15:28
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `creatures` (
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `creatures`
@@ -45,7 +45,8 @@ CREATE TABLE IF NOT EXISTS `creatures` (
 INSERT INTO `creatures` (`id`, `name`, `description`, `image`, `type`, `user_id`) VALUES
 (12, 'élémentaires de l\'eau', 'Les élémentaires de l\'Eau sont des créatures patientes et opiniâtres faites d\'eau douce ou d\'eau salée. Ils préfèrent se cacher dans l\'eau ou y emmener leurs adversaires afin de prendre l\'avantage sur eux.', 'elementaire_d\'eau1734000119324.jpg', 'aquatique', 1),
 (13, 'tourmenteur', 'Tormentors are the servants of Ur-Traggal, the Demon Overlord of Pain. Consumed by the endless suffering of Urgash, they inflict upon their own bodies unthinkable horrors.', 'tourmenteur1734009997179.jpg', 'démoniaque', 3),
-(14, 'cyclope', 'Les cyclopes forment une espèce de créatures fantastiques dans la mythologie grecque.\r\n\r\nCe sont des monstres géants n\'ayant qu\'un œil au milieu du front. Les premiers cyclopes sont ceux de la Théogonie d\'Hésiode.', 'cyclope1734000788951.jpg', 'mi-bête', 3);
+(14, 'cyclope', 'Les cyclopes forment une espèce de créatures fantastiques dans la mythologie grecque.\r\n\r\nCe sont des monstres géants n\'ayant qu\'un œil au milieu du front. Les premiers cyclopes sont ceux de la Théogonie d\'Hésiode.', 'cyclope1734000788951.jpg', 'mi-bête', 3),
+(15, 'juste un robot', 'Un Terminator, robot d\'aspect humain, est envoyé d\'un futur où sa race livre aux hommes une guerre sans merci. Sa mission est de trouver et d\'éliminer Sarah Connor avant qu\'elle ne donne naissance à John, appelé à devenir le chef de la résistance. Cette d', 'Terminator1734358012773.jpg', 'mi-bête', 14);
 
 -- --------------------------------------------------------
 
@@ -85,14 +86,15 @@ CREATE TABLE IF NOT EXISTS `spells` (
   `user_id` int NOT NULL,
   `element_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `spells`
 --
 
 INSERT INTO `spells` (`id`, `name`, `description`, `image`, `user_id`, `element_name`) VALUES
-(2, 'vents violents', 'The Hero calls upon the winds to impair enemy ranged-attacking creatures for 5 turn(s). Damage from all enemy shooters is reduced by X%.', 'Vent violent1734093203714.webp', 1, 'air');
+(2, 'vents violents', 'The Hero calls upon the winds to impair enemy ranged-attacking creatures for 5 turn(s). Damage from all enemy shooters is reduced by X%.', 'Vent violent1734093203714.webp', 1, 'air'),
+(3, 'rayon lazer', 'Le rayonnement laser est monochromatique : il contient une seule couleur parce que l\'on choisit comme dopant un élément qui offre un seul type de niveau excité accessible (en principe). En se désexcitant, les électrons libèrent tous la même énergie, d\'où ', 'laser1734358128181.jpg', 14, 'lumière');
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -138,7 +140,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `password`, `role`) VALUES
 (1, 'aze', '8d019f4187a2415e48b00a3ee28cbe7e545a3c6d', 'utilisateur'),
-(3, 'qsd', 'df422a3dbdd5921d36100f808dc6395048468f55', 'utilisateur');
+(3, 'qsd', 'df422a3dbdd5921d36100f808dc6395048468f55', 'utilisateur'),
+(14, 'roukmout', 'f48720d5e07e8d09f001ad93ddd36336f1ad89eb', 'utilisateur');
 
 -- --------------------------------------------------------
 
@@ -158,7 +161,14 @@ CREATE TABLE IF NOT EXISTS `users_elements` (
 
 INSERT INTO `users_elements` (`user_id`, `element_id`) VALUES
 (1, 2),
-(1, 1);
+(1, 1),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(2, 2),
+(2, 3),
+(14, 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

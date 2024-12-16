@@ -29,7 +29,7 @@
         ]);
         header("Location:/php%20academie%202024/app/navigation/bestiary.php");
     }else{
-        echo "non";
+        // echo "non";
     }
 ?>
 <!DOCTYPE html>
